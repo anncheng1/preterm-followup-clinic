@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preterm Infant Follow-Up Clinic · Miri General Hospital</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0d2137;--navy2:#163351;--teal:#0a7f72;--teal2:#12b3a3;
+  --gold:#d4900a;--gold2:#f5c340;--cream:#f8f5ef;--cream2:#eee8dc;
+  --red:#b5281c;--red2:#e03d2f;--green:#186640;--green2:#26a35a;
+  --blue:#1a5fa8;--blue2:#3b82d4;--warn:#b86b00;--warn2:#f5a623;
+  --text:#1a2c3d;--muted:#56707f;--border:#cdd8e0;--white:#fff;
+  --sh:0 2px 16px rgba(13,33,55,.09);--shb:0 8px 40px rgba(13,33,55,.14);
+  --r:10px;--rs:6px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Source Sans 3',sans-serif;background:var(--cream);color:var(--text);font-size:13.5px}
+.hdr{background:var(--navy);color:#fff;position:sticky;top:0;z-index:200;box-shadow:var(--shb)}
+.hdr-top{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:12px 20px}
+.hdr-icon{width:42px;height:42px;background:var(--teal);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.hdr-title{flex:1}.hdr-title h1{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;line-height:1.2}
+.hdr-title p{font-size:10.5px;color:rgba(255,255,255,.5);margin-top:1px;letter-spacing:.6px;text-transform:uppercase}
+.hdr-btns{display:flex;gap:7px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border-radius:var(--rs);font-family:'Source Sans 3',sans-serif;font-size:12.5px;font-weight:600;cursor:pointer;border:none;transition:all .16s}
+.btn-ghost{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2)}.btn-ghost:hover{background:rgba(255,255,255,.2)}
+.btn-teal{background:var(--teal);color:#fff}.btn-teal:hover{background:var(--teal2)}
+.btn-gold{background:var(--gold);color:#fff}.btn-gold:hover{background:var(--gold2);color:var(--navy)}
+.btn-red{background:var(--red);color:#fff}.btn-red:hover{background:var(--red2)}
+.btn-sm{padding:5px 10px;font-size:11.5px}
+.nav{background:var(--navy2);display:flex;overflow-x:auto;scrollbar-width:none;padding:0 20px;border-top:1px solid rgba(255,255,255,.07)}
+.nav-t{padding:9px 16px;color:rgba(255,255,255,.5);font-size:12px;font-weight:600;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:all .16s;letter-spacing:.3px}
+.nav-t:hover{color:rgba(255,255,255,.85)}.nav-t.on{color:var(--gold2);border-bottom-color:var(--gold)}
+.wrap{max-width:1200px;margin:0 auto;padding:24px 20px 60px}
+.sec{display:none;animation:fi .22s ease}.sec.on{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.card{background:var(--white);border-radius:var(--r);box-shadow:var(--sh);border:1px solid var(--border);margin-bottom:18px;overflow:hidden}
+.ch{background:var(--navy);color:#fff;padding:10px 18px;display:flex;align-items:center;gap:9px}
+.ch h2{font-family:'Playfair Display',serif;font-size:14.5px;font-weight:400;flex:1}
+.ch .bdg{font-size:10.5px;background:rgba(255,255,255,.15);padding:2px 8px;border-radius:20px;color:rgba(255,255,255,.7)}
+.cb{padding:18px}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.fg2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fg3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.fld{display:flex;flex-direction:column;gap:4px}
+.fld label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
+.fld input,.fld select,.fld textarea{padding:8px 11px;border:1.5px solid var(--border);border-radius:var(--rs);font-family:'Source Sans 3',sans-serif;font-size:13px;color:var(--text);background:var(--cream);outline:none;transition:border-color .14s}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--teal);background:#fff}
+.fld textarea{resize:vertical;min-height:56px}
+.fld.hl input{background:#e8f8f5;border-color:var(--teal2);font-weight:600;color:var(--navy)}
+.sep{height:1px;background:var(--border);margin:14px 0}
+.ca-box{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:var(--r);color:#fff;padding:16px 20px;display:flex;gap:20px;align-items:center;margin-bottom:14px}
+.ca-num{font-family:'Playfair Display',serif;font-size:44px;color:var(--gold2);line-height:1}
+.ca-info h3{font-size:13px;margin-bottom:3px}.ca-info p{font-size:11px;color:rgba(255,255,255,.6)}
+.ca-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11.5px;font-weight:600;background:rgba(255,255,255,.15);color:rgba(255,255,255,.9)}
+.chip.g{background:rgba(38,163,90,.3);color:#7dffb3}.chip.w{background:rgba(248,166,35,.3);color:#ffd87a}.chip.r{background:rgba(224,61,47,.3);color:#ffb3ae}
+.cr{display:flex;align-items:center;gap:8px;padding:6px 9px;border-radius:var(--rs);cursor:pointer;transition:background .12s}
+.cr:hover{background:var(--cream2)}
+.cr input[type=checkbox]{width:14px;height:14px;accent-color:var(--teal);cursor:pointer;flex-shrink:0}
+.cr input[type=radio]{width:14px;height:14px;accent-color:var(--teal);cursor:pointer;flex-shrink:0}
+.cr label{font-size:13px;cursor:pointer;flex:1}
+.cr.rf{background:#fff5f4}.cr.rf:hover{background:#ffe8e5}.cr.rf label{color:var(--red)}.cr.rf input{accent-color:var(--red)}
+.cg{display:flex;flex-direction:column;gap:2px}
+.rg{display:flex;flex-wrap:wrap;gap:2px}
+.dom{border:1px solid var(--border);border-radius:var(--rs);margin-bottom:10px;overflow:hidden}
+.dom-h{background:var(--cream2);padding:7px 13px;font-size:11.5px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.6px;display:flex;align-items:center;gap:7px}
+.dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}.dom-b{padding:10px 13px}
+.alert{padding:9px 14px;border-radius:var(--rs);font-size:12.5px;margin-bottom:12px;border-left:4px solid;display:flex;align-items:flex-start;gap:9px}
+.alert.info{background:#e8f4fc;border-color:var(--blue2);color:#0a3a5c}
+.alert.warn{background:#fff8e1;border-color:var(--warn2);color:#5a3800}
+.alert.danger{background:#fff0ef;border-color:var(--red2);color:#5a0c08}
+.atabs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
+.atab{padding:5px 13px;border-radius:20px;font-size:12px;font-weight:700;cursor:pointer;border:1.5px solid var(--border);background:#fff;color:var(--muted);transition:all .14s}
+.atab:hover{border-color:var(--teal);color:var(--teal)}.atab.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.apanel{display:none}.apanel.on{display:block}
+.chart-wrap{position:relative;width:100%}
+canvas.gc{width:100%;border-radius:var(--rs);background:#fff;display:block}
+.chart-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;padding:8px 12px;background:var(--cream2);border-radius:var(--rs)}
+.leg{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--muted)}
+.leg-d{width:14px;height:4px;border-radius:2px}
+.ctabs{display:flex;gap:6px;margin-bottom:10px}
+.ctab{padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:#fff;color:var(--muted);transition:all .14s}
+.ctab:hover{border-color:var(--blue2);color:var(--blue2)}.ctab.on{background:var(--navy);border-color:var(--navy);color:#fff}
+/* HINE */
+.hine-total{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:var(--r);padding:18px 22px;color:#fff;display:flex;gap:24px;align-items:center;margin-bottom:16px}
+.hine-num{font-family:'Playfair Display',serif;font-size:56px;line-height:1;color:var(--gold2)}
+.hine-info h3{font-size:14px;margin-bottom:4px}.hine-info p{font-size:11.5px;color:rgba(255,255,255,.6)}
+.hii{display:inline-block;margin-top:7px;padding:3px 11px;border-radius:20px;font-size:12px;font-weight:700}
+.hi-n{background:var(--green);color:#fff}.hi-s{background:var(--warn);color:#fff}.hi-h{background:var(--red);color:#fff}
+.hdoms{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:700px){.hdoms{grid-template-columns:1fr}}
+.hdom{border:1.5px solid var(--border);border-radius:var(--rs);overflow:hidden}
+.hdom-h{padding:7px 13px;font-size:11.5px;font-weight:700;display:flex;justify-content:space-between;align-items:center;color:#fff}
+.hdom-sc{background:var(--gold);color:var(--navy);padding:1px 8px;border-radius:12px;font-size:12px;font-weight:700}
+.hdom-b{padding:6px 0}
+.hitem{padding:7px 12px;border-bottom:1px solid var(--border)}
+.hitem:last-child{border-bottom:none}
+.hitem-name{font-size:12.5px;font-weight:700;color:var(--text);margin-bottom:2px}
+.hitem-desc{font-size:11px;color:var(--muted);margin-bottom:6px;font-style:italic}
+.hopts{display:flex;gap:4px;flex-wrap:wrap}
+.hopt{padding:4px 10px;border-radius:20px;font-size:11.5px;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:#fff;color:var(--muted);transition:all .14s;white-space:nowrap;user-select:none}
+.hopt:hover{border-color:var(--teal);color:var(--teal)}
+.hopt.s0{background:#f0f4f8;border-color:var(--blue2);color:var(--blue)}
+.hopt.s1{background:#fff3cd;border-color:var(--warn2);color:var(--warn)}
+.hopt.s2{background:#e6f9f0;border-color:var(--green2);color:var(--green)}
+.hopt.s3{background:#d4edda;border-color:var(--green);color:var(--green)}
+/* Impression */
+.imp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.imp-card{border:1.5px solid var(--border);border-radius:var(--rs);padding:11px 13px;cursor:pointer;display:flex;align-items:center;gap:9px;transition:all .14s}
+.imp-card:hover{border-color:var(--teal);background:var(--cream)}.imp-card.on{border-color:var(--navy);background:#e4edf8}
+.imp-card label{font-size:12.5px;cursor:pointer;flex:1}
+/* Data */
+.dtable{width:100%;border-collapse:collapse;font-size:12px}
+.dtable th{background:var(--navy);color:#fff;padding:9px 11px;text-align:left;font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.4px}
+.dtable td{padding:8px 11px;border-bottom:1px solid var(--border);vertical-align:middle}
+.dtable tr:hover td{background:var(--cream)}
+.tag{display:inline-block;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:700}
+.tg{background:#d4edda;color:#155724}.ty{background:#fff3cd;color:#856404}.tr{background:#f8d7da;color:#721c24}.tb{background:#cce5ff;color:#004085}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:20px}
+.stat{background:#fff;border-radius:var(--r);border:1px solid var(--border);padding:16px;text-align:center;box-shadow:var(--sh)}
+.stat-n{font-family:'Playfair Display',serif;font-size:36px;color:var(--navy);line-height:1;margin-bottom:3px}
+.stat-l{font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(70px);background:var(--navy);color:#fff;padding:11px 22px;border-radius:30px;font-size:13px;font-weight:600;box-shadow:var(--shb);transition:transform .3s cubic-bezier(.34,1.56,.64,1);z-index:9999;pointer-events:none}
+#toast.show{transform:translateX(-50%) translateY(0)}
+.mt{margin-top:12px}.mt2{margin-top:16px}
+.sh{font-family:'Playfair Display',serif;font-size:21px;color:var(--navy);margin-bottom:5px;font-weight:400}
+.sub{font-size:12.5px;color:var(--muted);margin-bottom:18px}
+.empty{text-align:center;padding:36px;color:var(--muted)}
+.empty .ei{font-size:36px;margin-bottom:10px}
+.empty h3{font-size:15px;color:var(--navy);margin-bottom:5px}
+@media print{
+  body{background:#fff;font-size:10.5pt}
+  .hdr,.nav,.hdr-btns,#s8,#toast{display:none!important}
+  .wrap{padding:0;max-width:100%}
+  .sec{display:block!important}
+  .card{box-shadow:none;border:1px solid #ccc;page-break-inside:avoid}
+  .ch{background:#163351!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .apanel{display:block!important}
+  .atabs,.ctabs{display:none}
+  canvas{max-height:260px}
+}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div class="hdr-top">
+    <div class="hdr-icon">🍼</div>
+    <div class="hdr-title">
+      <h1>Preterm Infant Follow-Up Clinic</h1>
+      <p>Hospital Miri · Department of Neonatology</p>
+    </div>
+    <div class="hdr-btns">
+      <button class="btn btn-ghost" onclick="clearForm()">🗑 New Visit</button>
+      <button class="btn btn-teal" onclick="saveRecord()">💾 Save</button>
+      <button class="btn btn-gold" onclick="window.print()">🖨 Print/PDF</button>
+      <button class="btn btn-ghost" onclick="exportCSV()">⬇ CSV</button>
+    </div>
+  </div>
+  <div class="nav">
+    <div class="nav-t on" onclick="go('s1',this)">👤 Patient</div>
+    <div class="nav-t" onclick="go('s2',this)">📏 Growth</div>
+    <div class="nav-t" onclick="go('s3',this)">🏥 Medical</div>
+    <div class="nav-t" onclick="go('s4',this)">🧠 HINE</div>
+    <div class="nav-t" onclick="go('s5',this)">🎬 GMA</div>
+    <div class="nav-t" onclick="go('s6',this)">🌱 Development</div>
+    <div class="nav-t" onclick="go('s7',this)">📋 Plan</div>
+    <div class="nav-t" onclick="go('s8',this)">📊 Data</div>
+  </div>
+</div>
+<div class="wrap">
+
+<!-- S1 PATIENT -->
+<div id="s1" class="sec on">
+  <div class="sh">Patient Details</div>
+  <div class="sub">Enter patient demographics. Corrected age is auto-calculated from DOB and birth gestation.</div>
+  <div class="card">
+    <div class="ch"><span>🏷</span><h2>Identification</h2></div>
+    <div class="cb">
+      <div class="fg">
+        <div class="fld" style="grid-column:span 2"><label>Full Name</label><input type="text" id="pName" placeholder="Baby's full name"></div>
+        <div class="fld"><label>MRN / MIC</label><input type="text" id="pMIC" placeholder="MH-2024-XXXXXX"></div>
+        <div class="fld"><label>Sex</label><select id="pSex"><option value="">Select…</option><option>Male</option><option>Female</option></select></div>
+        <div class="fld"><label>Mother's Name</label><input type="text" id="pMom" placeholder="Mother's full name"></div>
+        <div class="fld"><label>Contact Number</label><input type="tel" id="pContact" placeholder="+60 xx-xxxx xxxx"></div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ch"><span>📅</span><h2>Age Calculation</h2><span class="bdg">Auto-computed</span></div>
+    <div class="cb">
+      <div class="fg3">
+        <div class="fld"><label>Date of Birth</label><input type="date" id="pDOB" onchange="calcAge()"></div>
+        <div class="fld"><label>Birth Gestation (weeks)</label><input type="number" id="pGA" placeholder="e.g. 28" min="22" max="42" onchange="calcAge()"></div>
+        <div class="fld"><label>Visit Date</label><input type="date" id="pVisit" onchange="calcAge()"></div>
+      </div>
+      <div id="caBox" class="ca-box mt" style="display:none">
+        <div class="ca-num" id="caNum">—</div>
+        <div class="ca-info">
+          <h3>Corrected Age</h3>
+          <p id="caDetail">—</p>
+          <div class="ca-chips" id="caChips"></div>
+        </div>
+      </div>
+      <div class="fg3 mt">
+        <div class="fld hl"><label>Corrected Age (auto)</label><input type="text" id="correctedAge" readonly placeholder="Auto-calculated…"></div>
+        <div class="fld hl"><label>PMA at Visit (wks)</label><input type="text" id="pmaDisplay" readonly placeholder="Auto…"></div>
+        <div class="fld"><label>Birth Weight (g)</label><input type="number" id="pBW" placeholder="e.g. 1050" min="300" max="5000"></div>
+      </div>
+      <div class="fg3 mt">
+        <div class="fld"><label>Visit Number</label><input type="number" id="pVisitNum" placeholder="e.g. 2" min="1"></div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ch"><span>💬</span><h2>Parental Concerns</h2></div>
+    <div class="cb">
+      <div class="fg2">
+        <div>
+          <div class="cr"><input type="checkbox" id="c1"><label for="c1">Feeding difficulties</label></div>
+          <div class="cr"><input type="checkbox" id="c2"><label for="c2">Development / movement</label></div>
+          <div class="cr"><input type="checkbox" id="c3"><label for="c3">Breathing concerns</label></div>
+        </div>
+        <div>
+          <div class="cr"><input type="checkbox" id="c4"><label for="c4">Vision / hearing</label></div>
+          <div class="cr"><input type="checkbox" id="c5"><label for="c5">Sleep / behaviour</label></div>
+          <div class="cr"><input type="checkbox" id="c6"><label for="c6">Other (specify below)</label></div>
+        </div>
+      </div>
+      <div class="fld mt"><label>Other Concerns</label><textarea id="otherConcerns" placeholder="Free-text additional parental concerns…"></textarea></div>
+    </div>
+  </div>
+</div>
+
+<!-- S2 GROWTH -->
+<div id="s2" class="sec">
+  <div class="sh">Growth & Nutrition</div>
+  <div class="sub">Measurements auto-plotted on Fenton 2013 (preterm, 22–50 weeks PMA) transitioning to WHO 2006 (0–24 months CA). Corrected age used until 2 years CA, then chronological.</div>
+  <div class="card">
+    <div class="ch"><span>📏</span><h2>Anthropometry — This Visit</h2></div>
+    <div class="cb">
+      <div class="fg3">
+        <div class="fld"><label>Weight (kg)</label><input type="number" id="gWT" placeholder="e.g. 4.5" step="0.01" oninput="drawCharts()"></div>
+        <div class="fld"><label>Length / Height (cm)</label><input type="number" id="gHT" placeholder="e.g. 54.0" step="0.1" oninput="drawCharts()"></div>
+        <div class="fld"><label>Head Circumference (cm)</label><input type="number" id="gHC" placeholder="e.g. 36.5" step="0.1" oninput="drawCharts()"></div>
+      </div>
+      <div class="sep"></div>
+      <div class="fg2">
+        <div class="fld"><label>Growth Velocity Appropriate?</label>
+          <div class="rg mt" style="flex-direction:column">
+            <div class="cr"><input type="radio" name="gv" value="Yes"><label>✅ Yes</label></div>
+            <div class="cr"><input type="radio" name="gv" value="No"><label>⚠️ No — review nutrition</label></div>
+          </div>
+        </div>
+        <div class="fld"><label>Centile / Z-score Notes</label><textarea id="centileNote" placeholder="e.g. Weight 3rd centile Fenton, HC 10th centile WHO…"></textarea></div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ch"><span>📈</span><h2>Growth Charts</h2><span class="bdg">Fenton 2013 → WHO 2006</span></div>
+    <div class="cb">
+      <div class="alert info">ℹ️ <span><strong>Fenton 2013</strong> used for 22–50 weeks PMA. Transitions to <strong>WHO 2006</strong> at term (40 weeks). Corrected age plotted until 2 years CA, then chronological age. Red dot = today's measurement.</span></div>
+      <div class="ctabs">
+        <div class="ctab on" onclick="switchChart('wt',this)">⚖️ Weight</div>
+        <div class="ctab" onclick="switchChart('ht',this)">📏 Length/Height</div>
+        <div class="ctab" onclick="switchChart('hc',this)">🧠 Head Circumference</div>
+      </div>
+      <div class="chart-wrap"><canvas id="gc" class="gc" height="420"></canvas></div>
+      <div class="chart-legend">
+        <div class="leg"><div class="leg-d" style="background:#c8d8e8"></div>3rd–97th band</div>
+        <div class="leg"><div class="leg-d" style="background:#84aed4"></div>10th–90th band</div>
+        <div class="leg"><div class="leg-d" style="background:#2268b0"></div>50th centile</div>
+        <div class="leg"><div class="leg-d" style="background:#e03d2f;height:10px;width:10px;border-radius:50%"></div>Patient measurement</div>
+        <div class="leg"><div class="leg-d" style="border-top:2px dashed #d4900a;background:none"></div>Fenton→WHO transition</div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ch"><span>🍼</span><h2>Feeding Review</h2></div>
+    <div class="cb">
+      <div class="fg2">
+        <div>
+          <div class="fld"><label>Feeding Type</label>
+            <div class="cg mt">
+              <div class="cr"><input type="checkbox" id="fbf"><label for="fbf">Breastfeeding</label></div>
+              <div class="cr"><input type="checkbox" id="febm"><label for="febm">Expressed Breast Milk</label></div>
+              <div class="cr"><input type="checkbox" id="fform"><label for="fform">Formula</label></div>
+              <div class="cr"><input type="checkbox" id="fmix"><label for="fmix">Mixed feeding</label></div>
+            </div>
+          </div>
+          <div class="fld mt"><label>Formula Type</label><input type="text" id="formulaType" placeholder="e.g. Pregestimil, S-26 Gold Prem"></div>
+          <div class="fld mt"><label>Fortification</label>
+            <div class="rg"><div class="cr"><input type="radio" name="fort" value="Yes"><label>Yes</label></div><div class="cr"><input type="radio" name="fort" value="No"><label>No</label></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="fld"><label>Feeding Tolerance</label><textarea id="feedTol" placeholder="Volumes, frequency, tolerance…"></textarea></div>
+          <div class="fld mt"><label>Vomiting / Reflux</label><textarea id="reflux" placeholder="Frequency, character, management…"></textarea></div>
+          <div class="fld mt"><label>Oral-Motor Skills</label>
+            <div class="rg" style="flex-direction:column">
+              <div class="cr"><input type="radio" name="om" value="Normal"><label>Normal</label></div>
+              <div class="cr"><input type="radio" name="om" value="Uncoordinated"><label>Uncoordinated</label></div>
+              <div class="cr"><input type="radio" name="om" value="Needs pacing"><label>Needs pacing</label></div>
+            </div>
+          </div>
+          <div class="fld mt"><label>Aspiration Concern?</label>
+            <div class="rg"><div class="cr"><input type="radio" name="asp" value="No"><label>No</label></div><div class="cr"><input type="radio" name="asp" value="Yes"><label>⚠️ Yes</label></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S3 MEDICAL -->
+<div id="s3" class="sec">
+  <div class="sh">Medical Issues Review</div>
+  <div class="sub">Systematic organ-system review. Document active concerns, recent events, and specialist follow-up status.</div>
+  <div class="card">
+    <div class="ch"><span>🏥</span><h2>Systems Review</h2></div>
+    <div class="cb">
+      <div class="dom"><div class="dom-h"><div class="dot" style="background:#3498db"></div>Respiratory / BPD</div><div class="dom-b">
+        <div class="cg" style="flex-direction:row;flex-wrap:wrap;margin-bottom:8px">
+          <div class="cr"><input type="checkbox" id="ro2"><label for="ro2">On home O₂</label></div>
+          <div class="cr"><input type="checkbox" id="rinh"><label for="rinh">On inhaler</label></div>
+          <div class="cr"><input type="checkbox" id="radm"><label for="radm">Recent admission</label></div>
+        </div>
+        <div class="fld"><label>Notes</label><textarea id="mResp" placeholder="O₂ flow, FiO₂, inhaler type, recent admissions, wheeze…"></textarea></div>
+      </div></div>
+      <div class="dom"><div class="dom-h"><div class="dot" style="background:#e74c3c"></div>Cardiac</div><div class="dom-b">
+        <div class="fld"><label>Notes</label><textarea id="mCardiac" placeholder="PDA, murmur, cardiology follow-up date…"></textarea></div>
+      </div></div>
+      <div class="dom"><div class="dom-h"><div class="dot" style="background:#9b59b6"></div>Neurology</div><div class="dom-b">
+        <div class="fld"><label>Notes</label><textarea id="mNeuro" placeholder="Seizures, tone, IVH grade, MRI/CUS findings, neurology review…"></textarea></div>
+      </div></div>
+      <div class="dom"><div class="dom-h"><div class="dot" style="background:#f39c12"></div>Vision / ROP</div><div class="dom-b">
+        <div class="fld"><label>Last Ophthalmology Visit & Findings</label><input type="text" id="mROP" placeholder="e.g. ROP cleared — no treatment; glasses prescribed"></div>
+      </div></div>
+      <div class="dom"><div class="dom-h"><div class="dot" style="background:#1abc9c"></div>Hearing</div><div class="dom-b">
+        <div class="fg2">
+          <div class="fld"><label>NHSP Status</label><input type="text" id="mHrNHS" placeholder="Pass / Refer / Pending"></div>
+          <div class="fld"><label>Repeat / ABR Results</label><input type="text" id="mHrABR" placeholder="ABR outcome, date…"></div>
+        </div>
+      </div></div>
+      <div class="dom"><div class="dom-h"><div class="dot" style="background:#e67e22"></div>Endocrine / Metabolic (MBD)</div><div class="dom-b">
+        <div class="fld"><label>Notes</label><textarea id="mEndo" placeholder="TFT status, ALP, phosphate, bone profile, rickets treatment…"></textarea></div>
+      </div></div>
+      <div class="dom"><div class="dom-h"><div class="dot" style="background:#34495e"></div>Current Medications</div><div class="dom-b">
+        <div class="fld"><label>Medications</label><textarea id="mMeds" placeholder="Iron, Vitamin D, vitamins, diuretics, caffeine, others with doses…"></textarea></div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- S4 HINE -->
+<div id="s4" class="sec">
+  <div class="sh">HINE — Hammersmith Infant Neurological Examination</div>
+  <div class="sub">Full 26-item scoring tool. Select the descriptor that best matches the infant's performance. Score auto-totals with domain breakdown.</div>
+  <div class="alert info">ℹ️ <span><strong>Interpretation (3–6m CA):</strong> Score &gt;57 = Normal · 40–57 = Suboptimal · &lt;40 = High-risk for motor impairment. Always interpret with clinical context and developmental history.</span></div>
+  <div class="hine-total">
+    <div class="hine-num" id="hTotal">0</div>
+    <div class="hine-info">
+      <h3>HINE Total Score <span style="font-size:12px;opacity:.6">/ 78</span></h3>
+      <p id="hSub">Select items below to calculate score</p>
+      <div id="hIntBox"></div>
+    </div>
+  </div>
+  <div class="hdoms" id="hdoms"></div>
+  <div class="card">
+    <div class="ch" style="background:var(--navy2)"><span>📝</span><h2>HINE Narrative Notes</h2></div>
+    <div class="cb">
+      <div class="fg2">
+        <div class="fld"><label>Cranial Nerve Findings</label><textarea id="hNoteCN" placeholder="Vision tracking, auditory, facial symmetry, sucking…"></textarea></div>
+        <div class="fld"><label>Postural / Tone Findings</label><textarea id="hNoteTone" placeholder="Axial tone, limb tone, head control, truncal stability…"></textarea></div>
+        <div class="fld"><label>Movement Quality</label><textarea id="hNoteMov" placeholder="Quantity, fluency, symmetry, spontaneous movements…"></textarea></div>
+        <div class="fld"><label>Reflexes & Reactions</label><textarea id="hNoteRef" placeholder="Pull-to-sit, lateral tilting, vertical suspension, Moro…"></textarea></div>
+        <div class="fld"><label>Asymmetries</label><textarea id="hNoteAsym" placeholder="Note any left-right asymmetry, lateralising signs…"></textarea></div>
+        <div class="fld"><label>Overall Clinical Impression</label><textarea id="hNoteImp" placeholder="Narrative neurological impression…"></textarea></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S5 GMA -->
+<div id="s5" class="sec">
+  <div class="sh">General Movements Assessment (GMA)</div>
+  <div class="sub">Applicable from birth to 20 weeks corrected age. Absent fidgety movements are a strong predictor of cerebral palsy.</div>
+  <div class="card">
+    <div class="ch"><span>🎬</span><h2>GMA Classification</h2><span class="bdg">0–20 weeks CA</span></div>
+    <div class="cb">
+      <div class="alert warn">⚠️ <span><strong>Absent fidgety movements (F−)</strong> at 9–20 weeks CA have ~98% sensitivity for later CP. Refer urgently to developmental paediatrics / physiotherapy.</span></div>
+      <div class="fg2">
+        <div>
+          <div class="fld"><label>Video Available?</label>
+            <div class="rg"><div class="cr"><input type="radio" name="gvid" value="Yes"><label>Yes</label></div><div class="cr"><input type="radio" name="gvid" value="No"><label>No</label></div></div>
+          </div>
+          <div class="sep"></div>
+          <div class="fld"><label>Writhing Stage (preterm → 6–9 weeks CA)</label>
+            <div class="cg mt">
+              <div class="cr"><input type="radio" name="wr" value="Normal"><label>✅ Normal writhing movements</label></div>
+              <div class="cr"><input type="radio" name="wr" value="Poor repertoire"><label>⚠️ Poor repertoire (PR)</label></div>
+              <div class="cr"><input type="radio" name="wr" value="Cramped-synchronised"><label>🔴 Cramped-synchronised (CS)</label></div>
+              <div class="cr"><input type="radio" name="wr" value="Chaotic"><label>🔶 Chaotic (Ch)</label></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="fld"><label>Fidgety Stage (9–20 weeks CA)</label>
+            <div class="cg mt">
+              <div class="cr"><input type="radio" name="fi" value="Normal fidgety"><label>✅ Normal fidgety (F+)</label></div>
+              <div class="cr"><input type="radio" name="fi" value="Absent"><label>🔴 Absent fidgety (F−) — HIGH RISK</label></div>
+              <div class="cr"><input type="radio" name="fi" value="Abnormal"><label>⚠️ Abnormal fidgety (AF)</label></div>
+              <div class="cr"><input type="radio" name="fi" value="Not applicable"><label>ℹ️ Not yet applicable</label></div>
+            </div>
+          </div>
+          <div class="sep"></div>
+          <div class="fld"><label>GMA Overall Interpretation</label>
+            <div class="cg mt">
+              <div class="cr"><input type="radio" name="gmaI" value="Normal"><label>✅ Normal</label></div>
+              <div class="cr"><input type="radio" name="gmaI" value="Borderline"><label>⚠️ Borderline / mildly abnormal</label></div>
+              <div class="cr"><input type="radio" name="gmaI" value="High risk — likely CP"><label>🔴 High risk — likely CP</label></div>
+            </div>
+          </div>
+          <div class="sep"></div>
+          <div class="fld"><label>Behavioural State Appropriate?</label>
+            <div class="rg"><div class="cr"><input type="radio" name="bstate" value="Yes"><label>Yes</label></div><div class="cr"><input type="radio" name="bstate" value="No"><label>No</label></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="fld mt"><label>GMA Notes</label><textarea id="gmaNotes" placeholder="Assessor comments, context (illness, medication, state), recommendations…"></textarea></div>
+    </div>
+  </div>
+</div>
+
+<!-- S6 DEVELOPMENT -->
+<div id="s6" class="sec">
+  <div class="sh">Developmental Screening</div>
+  <div class="sub">Corrected age–specific milestone checklist. The age tab is auto-selected based on corrected age. Tick milestones achieved.</div>
+  <div class="card">
+    <div class="ch"><span>🌱</span><h2>Milestones Checklist</h2><span class="bdg" id="devBadge">Select age tab</span></div>
+    <div class="cb">
+      <div class="atabs">
+        <div class="atab on" onclick="showAge('d3m',this)">3 months</div>
+        <div class="atab" onclick="showAge('d6m',this)">6 months</div>
+        <div class="atab" onclick="showAge('d9m',this)">9 months</div>
+        <div class="atab" onclick="showAge('d12m',this)">12 months</div>
+        <div class="atab" onclick="showAge('d15m',this)">15 months</div>
+        <div class="atab" onclick="showAge('d18m',this)">18 months</div>
+        <div class="atab" onclick="showAge('d24m',this)">24 months</div>
+      </div>
+      <div id="d3m" class="apanel on">
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#3498db"></div>A. Gross Motor — 3m CA</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>Head up briefly in prone</label></div>
+          <div class="cr"><input type="checkbox"><label>Midline hand regard</label></div>
+          <div class="cr"><input type="checkbox"><label>Symmetric movements</label></div>
+          <div class="cr"><input type="checkbox"><label>Improved head control</label></div>
+        </div></div></div>
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#e67e22"></div>B. Fine Motor / Vision</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>Fix and tracks 90°</label></div>
+          <div class="cr"><input type="checkbox"><label>Opens hands</label></div>
+          <div class="cr"><input type="checkbox"><label>Hands-to-mouth</label></div>
+        </div></div></div>
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#9b59b6"></div>C. Language</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>Cooing</label></div>
+          <div class="cr"><input type="checkbox"><label>Turns to voice</label></div>
+        </div></div></div>
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#1abc9c"></div>D. Social / Adaptive</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>Social smile</label></div>
+          <div class="cr"><input type="checkbox"><label>Consolable</label></div>
+          <div class="cr"><input type="checkbox"><label>Watches face</label></div>
+        </div></div></div>
+      </div>
+      <div id="d6m" class="apanel">
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#3498db"></div>A. Gross Motor — 6m CA</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>Good head control</label></div>
+          <div class="cr"><input type="checkbox"><label>Rolls both ways</label></div>
+          <div class="cr"><input type="checkbox"><label>Pushes up in prone</label></div>
+          <div class="cr"><input type="checkbox"><label>Sits with support</label></div>
+        </div></div></div>
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#e67e22"></div>B. Fine Motor / Vision</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>Reaches for objects</label></div>
+          <div class="cr"><input type="checkbox"><label>Transfers hand to hand</label></div>
+          <div class="cr"><input type="checkbox"><label>Explores with mouth</label></div>
+        </div></div></div>
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#9b59b6"></div>C. Language</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>Laughs aloud</label></div>
+          <div class="cr"><input type="checkbox"><label>Babbles (ma, ba, da)</label></div>
+          <div class="cr"><input type="checkbox"><label>Responds to name</label></div>
+        </div></div></div>
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#1abc9c"></div>D. Social</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>Stranger anxiety emerging</label></div>
+          <div class="cr"><input type="checkbox"><label>Explores hands/feet</label></div>
+        </div></div></div>
+      </div>
+      <div id="d9m" class="apanel">
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#3498db"></div>A. Gross Motor — 9m CA</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>Sits without support</label></div>
+          <div class="cr"><input type="checkbox"><label>Gets to sitting independently</label></div>
+          <div class="cr"><input type="checkbox"><label>Crawls or commando crawls</label></div>
+          <div class="cr"><input type="checkbox"><label>Bears weight on legs</label></div>
+        </div></div></div>
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#e67e22"></div>B. Fine Motor</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>Inferior pincer grasp</label></div>
+          <div class="cr"><input type="checkbox"><label>Transfers well</label></div>
+          <div class="cr"><input type="checkbox"><label>Bangs objects together</label></div>
+        </div></div></div>
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#9b59b6"></div>C. Language</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>Canonical babbling (ma-ma, da-da)</label></div>
+          <div class="cr"><input type="checkbox"><label>Responds to name consistently</label></div>
+          <div class="cr"><input type="checkbox"><label>Understands "no"</label></div>
+        </div></div></div>
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#1abc9c"></div>D. Social</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>Plays peek-a-boo</label></div>
+          <div class="cr"><input type="checkbox"><label>Object permanence emerging</label></div>
+        </div></div></div>
+      </div>
+      <div id="d12m" class="apanel">
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#3498db"></div>A. Gross Motor — 12m CA</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>Pulls to stand</label></div>
+          <div class="cr"><input type="checkbox"><label>Cruises along furniture</label></div>
+          <div class="cr"><input type="checkbox"><label>Brief independent stand</label></div>
+        </div></div></div>
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#e67e22"></div>B. Fine Motor</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>Mature pincer grasp</label></div>
+          <div class="cr"><input type="checkbox"><label>Points with index finger</label></div>
+          <div class="cr"><input type="checkbox"><label>2-block tower</label></div>
+        </div></div></div>
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#9b59b6"></div>C. Language</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>1–2 meaningful words</label></div>
+          <div class="cr"><input type="checkbox"><label>Waves bye-bye</label></div>
+          <div class="cr"><input type="checkbox"><label>Follows simple commands</label></div>
+        </div></div></div>
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#1abc9c"></div>D. Social</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>Interactive games</label></div>
+          <div class="cr"><input type="checkbox"><label>Points to request/show</label></div>
+        </div></div></div>
+      </div>
+      <div id="d15m" class="apanel">
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#3498db"></div>A. Gross Motor — 15m CA</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>Walks independently</label></div>
+          <div class="cr"><input type="checkbox"><label>Climbs furniture</label></div>
+          <div class="cr"><input type="checkbox"><label>Squats to pick up objects</label></div>
+        </div></div></div>
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#e67e22"></div>B. Fine Motor</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>Scribbles spontaneously</label></div>
+          <div class="cr"><input type="checkbox"><label>Uses spoon partially</label></div>
+          <div class="cr"><input type="checkbox"><label>Tower 2–3 blocks</label></div>
+        </div></div></div>
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#9b59b6"></div>C. Language</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>5–10 words</label></div>
+          <div class="cr"><input type="checkbox"><label>Imitates sounds/words</label></div>
+          <div class="cr"><input type="checkbox"><label>Understands simple phrases</label></div>
+        </div></div></div>
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#1abc9c"></div>D. Social</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>Imitates actions</label></div>
+          <div class="cr"><input type="checkbox"><label>Brings objects to show</label></div>
+        </div></div></div>
+      </div>
+      <div id="d18m" class="apanel">
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#3498db"></div>A. Gross Motor — 18m CA</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>Runs</label></div>
+          <div class="cr"><input type="checkbox"><label>Walks up steps with help</label></div>
+          <div class="cr"><input type="checkbox"><label>Throws a ball</label></div>
+        </div></div></div>
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#e67e22"></div>B. Fine Motor</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>Turns book pages</label></div>
+          <div class="cr"><input type="checkbox"><label>Tower 3–4 blocks</label></div>
+          <div class="cr"><input type="checkbox"><label>Scribbles purposefully</label></div>
+        </div></div></div>
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#9b59b6"></div>C. Language</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>10–20 words</label></div>
+          <div class="cr"><input type="checkbox"><label>Points to body parts</label></div>
+          <div class="cr"><input type="checkbox"><label>Follows 2-step commands</label></div>
+        </div></div></div>
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#1abc9c"></div>D. Social</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>Parallel play</label></div>
+          <div class="cr"><input type="checkbox"><label>Shows affection</label></div>
+        </div></div></div>
+      </div>
+      <div id="d24m" class="apanel">
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#3498db"></div>A. Gross Motor — 24m CA</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>Runs well</label></div>
+          <div class="cr"><input type="checkbox"><label>Jumps with both feet</label></div>
+          <div class="cr"><input type="checkbox"><label>Kicks a ball</label></div>
+          <div class="cr"><input type="checkbox"><label>Walks up/down stairs</label></div>
+        </div></div></div>
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#e67e22"></div>B. Fine Motor</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>Tower 4–6 blocks</label></div>
+          <div class="cr"><input type="checkbox"><label>Draws a line</label></div>
+          <div class="cr"><input type="checkbox"><label>Uses spoon and cup well</label></div>
+        </div></div></div>
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#9b59b6"></div>C. Language</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>50+ words</label></div>
+          <div class="cr"><input type="checkbox"><label>2-word phrases</label></div>
+          <div class="cr"><input type="checkbox"><label>Names familiar objects</label></div>
+          <div class="cr"><input type="checkbox"><label>Follows 2-step commands</label></div>
+        </div></div></div>
+        <div class="dom"><div class="dom-h"><div class="dot" style="background:#1abc9c"></div>D. Social</div><div class="dom-b"><div class="cg">
+          <div class="cr"><input type="checkbox"><label>Pretend play</label></div>
+          <div class="cr"><input type="checkbox"><label>Helps with simple tasks</label></div>
+          <div class="cr"><input type="checkbox"><label>Engages with peers</label></div>
+        </div></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ch" style="background:var(--red)"><span>🚨</span><h2>Developmental Red Flags — Any Visit</h2></div>
+    <div class="cb">
+      <div class="alert danger">🔴 <span>Any ticked red flag requires urgent developmental review and referral.</span></div>
+      <div class="fg2">
+        <div>
+          <div class="cr rf"><input type="checkbox" id="rf1"><label for="rf1">No social smile by 3m CA</label></div>
+          <div class="cr rf"><input type="checkbox" id="rf2"><label for="rf2">No babbling by 6–9m CA</label></div>
+          <div class="cr rf"><input type="checkbox" id="rf3"><label for="rf3">No sitting by 9m CA</label></div>
+          <div class="cr rf"><input type="checkbox" id="rf4"><label for="rf4">No pincer grasp by 12m CA</label></div>
+          <div class="cr rf"><input type="checkbox" id="rf5"><label for="rf5">No single words by 15–18m CA</label></div>
+        </div>
+        <div>
+          <div class="cr rf"><input type="checkbox" id="rf6"><label for="rf6">No 2-word phrases by 24m CA</label></div>
+          <div class="cr rf"><input type="checkbox" id="rf7"><label for="rf7">Persistent movement asymmetry</label></div>
+          <div class="cr rf"><input type="checkbox" id="rf8"><label for="rf8">Hand preference &lt;12m CA</label></div>
+          <div class="cr rf"><input type="checkbox" id="rf9"><label for="rf9">Loss of previously acquired skills</label></div>
+          <div class="cr rf"><input type="checkbox" id="rf10"><label for="rf10">ASD signs (no joint attention, no pointing)</label></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S7 PLAN -->
+<div id="s7" class="sec">
+  <div class="sh">Plan, Referrals & Clinical Impression</div>
+  <div class="sub">Document management plan, referrals, investigations, counselling, and overall clinical impression.</div>
+  <div class="card">
+    <div class="ch"><span>🎯</span><h2>Therapies & Referrals</h2></div>
+    <div class="cb">
+      <div class="fg2">
+        <div>
+          <div class="cr"><input type="checkbox" id="rPT"><label>Physiotherapy</label></div>
+          <div class="cr"><input type="checkbox" id="rOT"><label>Occupational Therapy</label></div>
+          <div class="cr"><input type="checkbox" id="rSLT"><label>Speech & Feeding Therapy</label></div>
+        </div>
+        <div>
+          <div class="cr"><input type="checkbox" id="rEIP"><label>Early Intervention Programme (EIP)</label></div>
+          <div class="cr"><input type="checkbox" id="rRehab"><label>Rehabilitation Medicine</label></div>
+          <div class="cr"><input type="checkbox" id="rOther"><label>Other specialist referral</label></div>
+        </div>
+      </div>
+      <div class="fld mt"><label>Referral Notes</label><textarea id="refNotes" placeholder="Urgency, reason, contact…"></textarea></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ch"><span>🔬</span><h2>Investigations</h2></div>
+    <div class="cb">
+      <div class="fg2">
+        <div>
+          <div class="cr"><input type="checkbox" id="invMRI"><label>MRI brain / Cranial ultrasound</label></div>
+          <div class="cr"><input type="checkbox" id="invTFT"><label>TFT / Bone profile (ALP, PO₄, Ca)</label></div>
+        </div>
+        <div>
+          <div class="cr"><input type="checkbox" id="invVFSS"><label>VFSS / Feeding evaluation</label></div>
+          <div class="cr"><input type="checkbox" id="invVH"><label>Vision / Hearing assessment</label></div>
+        </div>
+      </div>
+      <div class="fld mt"><label>Other Investigations</label><textarea id="invNotes" placeholder="Other investigations with rationale…"></textarea></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ch"><span>📚</span><h2>Counselling Provided</h2></div>
+    <div class="cb">
+      <div class="fg2">
+        <div>
+          <div class="cr"><input type="checkbox"><label>Milestones & developmental expectations</label></div>
+          <div class="cr"><input type="checkbox"><label>Home physiotherapy / exercises demonstrated</label></div>
+        </div>
+        <div>
+          <div class="cr"><input type="checkbox"><label>Feeding & nutrition plan</label></div>
+          <div class="cr"><input type="checkbox"><label>When to return early (red flags explained)</label></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ch"><span>📆</span><h2>Follow-Up</h2></div>
+    <div class="cb">
+      <div class="fg3">
+        <div class="fld"><label>Next Appointment Date</label><input type="date" id="nextDate"></div>
+        <div class="fld"><label>Interval</label><input type="text" id="nextInterval" placeholder="e.g. 3 months"></div>
+        <div class="fld"><label>Clinician</label><input type="text" id="clinician" placeholder="Name & designation"></div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ch" style="background:var(--teal)"><span>✅</span><h2>Clinical Impression</h2></div>
+    <div class="cb">
+      <div class="imp-grid">
+        <div class="imp-card" onclick="togImp(this)"><input type="checkbox" class="ic"><label>✅ Normal developmental progress</label></div>
+        <div class="imp-card" onclick="togImp(this)"><input type="checkbox" class="ic"><label>⚠️ Minor concerns — monitor</label></div>
+        <div class="imp-card" onclick="togImp(this)"><input type="checkbox" class="ic"><label>🔶 High-risk for motor delay</label></div>
+        <div class="imp-card" onclick="togImp(this)"><input type="checkbox" class="ic"><label>🔴 High-risk for CP</label></div>
+        <div class="imp-card" onclick="togImp(this)"><input type="checkbox" class="ic"><label>🗣 High-risk for language delay</label></div>
+        <div class="imp-card" onclick="togImp(this)"><input type="checkbox" class="ic"><label>📏 Nutritional / growth concern</label></div>
+      </div>
+      <div class="fld mt"><label>Narrative Summary</label><textarea id="impText" placeholder="Free-text clinical summary…" rows="4"></textarea></div>
+    </div>
+  </div>
+</div>
+
+<!-- S8 DATA -->
+<div id="s8" class="sec">
+  <div class="sh">Clinic Data & Analytics</div>
+  <div class="sub">Saved visit records for audit, QI, and research. Export as CSV for statistical analysis.</div>
+  <div class="stats-grid">
+    <div class="stat"><div class="stat-n" id="stTotal">0</div><div class="stat-l">Total Records</div></div>
+    <div class="stat"><div class="stat-n" id="stNorm">0</div><div class="stat-l">HINE Normal</div></div>
+    <div class="stat"><div class="stat-n" id="stRisk">0</div><div class="stat-l">High-Risk / Concern</div></div>
+    <div class="stat"><div class="stat-n" id="stRF">0</div><div class="stat-l">Red Flags Noted</div></div>
+    <div class="stat"><div class="stat-n" id="stGest">—</div><div class="stat-l">Mean Gestation</div></div>
+    <div class="stat"><div class="stat-n" id="stHINE">—</div><div class="stat-l">Mean HINE Score</div></div>
+  </div>
+  <div class="card">
+    <div class="ch">
+      <span>📋</span><h2>Saved Records</h2>
+      <div style="margin-left:auto;display:flex;gap:6px">
+        <button class="btn btn-teal btn-sm" onclick="exportCSV()">⬇ Export CSV</button>
+        <button class="btn btn-red btn-sm" onclick="clearAll()">🗑 Clear All</button>
+      </div>
+    </div>
+    <div style="overflow-x:auto"><div id="dtWrap"><div class="empty"><div class="ei">📋</div><h3>No records yet</h3><p>Save a visit to start collecting data.</p></div></div></div>
+  </div>
+</div>
+</div>
+<div id="toast">Saved</div>
+
+<script>
+// ═══ NAV ═══
+function go(id,tab){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
+  document.querySelectorAll('.nav-t').forEach(t=>t.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  tab.classList.add('on');
+  if(id==='s2') setTimeout(drawCharts,50);
+  if(id==='s4') buildHINE();
+}
+function showAge(id,tab){
+  document.querySelectorAll('.apanel').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.atab').forEach(t=>t.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  tab.classList.add('on');
+}
+function togImp(el){el.classList.toggle('on');el.querySelector('input').checked=el.classList.contains('on');}
+
+// ═══ CORRECTED AGE CALCULATION ═══
+function calcAge(){
+  const dobV=document.getElementById('pDOB').value;
+  const gaV=parseFloat(document.getElementById('pGA').value);
+  const visV=document.getElementById('pVisit').value;
+  if(!dobV||!gaV||!visV){document.getElementById('caBox').style.display='none';return;}
+  const dob=new Date(dobV), vis=new Date(visV);
+  const chronDays=Math.round((vis-dob)/86400000);
+  if(chronDays<0){showToast('⚠️ Visit date before birth date');return;}
+  const pmaWeeks=gaV+chronDays/7;
+  document.getElementById('pmaDisplay').value=pmaWeeks.toFixed(1)+' wks';
+  // Corrected age = chronological age minus prematurity correction
+  const weeksPrem=40-gaV;
+  const corrDays=chronDays-(weeksPrem*7);
+  const corrMonths=corrDays/30.4375;
+  let caStr,caDetail,ctype;
+  if(corrDays<0){
+    const wL=Math.abs(Math.round(corrDays/7));
+    caStr=`${wL}w pre-term`;caDetail=`${wL} weeks before expected due date`;ctype='r';
+  } else if(corrMonths<1){
+    const cw=Math.max(0,Math.round(corrDays/7));
+    caStr=`${cw}w CA`;caDetail=`Corrected age ${cw} weeks`;ctype='g';
+  } else if(corrMonths<24){
+    const m=Math.floor(corrMonths);const w=Math.round((corrMonths-m)*4.33);
+    caStr=`${m}m${w>0?' '+w+'w':''} CA`;
+    caDetail=`Corrected age ${m} months${w>0?' '+w+' weeks':''}`;ctype='g';
+  } else {
+    const chM=Math.floor(chronDays/30.4375);
+    caStr=`${chM}m chrono`;
+    caDetail=`≥2yr CA: using chronological age ${chM}m (CA was ${Math.floor(corrMonths)}m)`;ctype='w';
+  }
+  document.getElementById('caNum').textContent=caStr;
+  document.getElementById('caDetail').textContent=caDetail;
+  document.getElementById('correctedAge').value=caStr;
+  const chroM=Math.floor(chronDays/30.4375);
+  document.getElementById('caChips').innerHTML=
+    `<span class="chip">Chrono: ${chroM}m</span><span class="chip ${ctype}">CA: ${caStr}</span><span class="chip">PMA: ${pmaWeeks.toFixed(1)}w</span><span class="chip">GA: ${gaV}w</span>`;
+  document.getElementById('caBox').style.display='flex';
+  autoDevAge(corrMonths);
+  drawCharts();
+}
+
+function autoDevAge(cm){
+  if(isNaN(cm)||cm<0) return;
+  const map=[{m:2,id:'d3m',i:0},{m:4.5,id:'d6m',i:1},{m:7.5,id:'d9m',i:2},{m:10.5,id:'d12m',i:3},{m:13.5,id:'d15m',i:4},{m:16.5,id:'d18m',i:5},{m:21,id:'d24m',i:6}];
+  let best=map[0];
+  for(const e of map){if(cm>=e.m) best=e;}
+  document.querySelectorAll('.apanel').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.atab').forEach(t=>t.classList.remove('on'));
+  document.getElementById(best.id).classList.add('on');
+  document.querySelectorAll('.atab')[best.i].classList.add('on');
+}
+
+function getPMAInfo(){
+  const dobV=document.getElementById('pDOB').value;
+  const gaV=parseFloat(document.getElementById('pGA').value);
+  const visV=document.getElementById('pVisit').value;
+  if(!dobV||!gaV||!visV) return null;
+  const chronDays=Math.round((new Date(visV)-new Date(dobV))/86400000);
+  if(chronDays<0) return null;
+  return {pmaWeeks:gaV+chronDays/7, gaV, chronDays, corrMonths:(chronDays-(40-gaV)*7)/30.4375};
+}
+
+// ═══ GROWTH CHART DATA ═══
+// Fenton 2013 — weight kg (sex-merged approximation)
+const FW={
+  w:[22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50],
+  p3:[.38,.44,.52,.62,.73,.85,.99,1.14,1.31,1.49,1.68,1.89,2.11,2.33,2.54,2.73,2.91,3.06,3.19,3.28,3.34,3.38,3.40,3.41,3.41,3.41,3.40,3.39,3.38],
+  p10:[.44,.51,.60,.71,.84,.98,1.14,1.31,1.50,1.71,1.92,2.15,2.39,2.63,2.86,3.07,3.26,3.42,3.56,3.67,3.75,3.80,3.83,3.84,3.84,3.83,3.82,3.81,3.79],
+  p50:[.56,.65,.76,.90,1.06,1.24,1.44,1.66,1.90,2.15,2.42,2.69,2.98,3.27,3.55,3.80,4.03,4.23,4.40,4.53,4.63,4.70,4.74,4.76,4.76,4.75,4.74,4.72,4.70],
+  p90:[.70,.82,.97,1.14,1.34,1.57,1.82,2.09,2.38,2.70,3.02,3.36,3.71,4.05,4.38,4.68,4.96,5.19,5.40,5.56,5.68,5.76,5.81,5.83,5.83,5.82,5.80,5.77,5.74],
+  p97:[.80,.94,1.11,1.31,1.54,1.80,2.08,2.40,2.73,3.09,3.46,3.84,4.23,4.61,4.97,5.30,5.61,5.87,6.09,6.26,6.38,6.46,6.51,6.53,6.53,6.52,6.50,6.47,6.44]
+};
+const FH={
+  w:[22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50],
+  p3:[24.8,26.2,27.6,29.1,30.5,31.9,33.2,34.6,35.8,37.0,38.1,39.1,40.1,41.0,41.8,42.6,43.4,44.2,45.2,46.1,47.0,47.8,48.5,49.1,49.6,50.1,50.5,50.9,51.2],
+  p10:[25.7,27.1,28.6,30.1,31.6,33.1,34.5,35.9,37.2,38.5,39.7,40.8,41.8,42.8,43.7,44.6,45.5,46.4,47.4,48.4,49.3,50.2,50.9,51.6,52.2,52.7,53.1,53.5,53.8],
+  p50:[27.3,28.8,30.4,32.0,33.5,35.1,36.6,38.0,39.4,40.7,42.0,43.1,44.2,45.2,46.2,47.1,48.1,49.1,50.2,51.3,52.3,53.3,54.1,54.9,55.6,56.2,56.7,57.1,57.5],
+  p90:[28.9,30.5,32.2,33.9,35.6,37.1,38.7,40.2,41.6,43.0,44.3,45.5,46.6,47.7,48.7,49.7,50.8,51.9,53.1,54.3,55.4,56.4,57.3,58.1,58.8,59.4,59.9,60.3,60.7],
+  p97:[29.8,31.4,33.2,35.0,36.7,38.3,39.9,41.5,42.9,44.3,45.6,46.9,48.0,49.1,50.1,51.2,52.3,53.5,54.8,56.0,57.1,58.1,59.0,59.8,60.5,61.1,61.6,62.0,62.4]
+};
+const FHC={
+  w:[22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50],
+  p3:[18.0,19.4,20.7,22.1,23.4,24.7,25.9,27.0,28.1,29.1,30.0,30.9,31.7,32.4,33.1,33.6,34.0,34.4,34.8,35.1,35.4,35.7,36.0,36.2,36.5,36.7,36.9,37.0,37.2],
+  p10:[18.7,20.1,21.5,22.9,24.2,25.6,26.8,28.0,29.1,30.2,31.2,32.1,33.0,33.8,34.5,35.1,35.6,36.1,36.5,36.9,37.3,37.6,37.9,38.2,38.4,38.7,38.9,39.1,39.2],
+  p50:[20.1,21.6,23.0,24.5,25.9,27.2,28.5,29.8,30.9,32.0,33.1,34.0,34.9,35.8,36.5,37.2,37.8,38.3,38.8,39.2,39.6,39.9,40.2,40.5,40.8,41.0,41.2,41.4,41.6],
+  p90:[21.5,23.0,24.5,26.0,27.5,28.9,30.2,31.5,32.8,33.9,35.0,36.0,36.9,37.8,38.6,39.3,39.9,40.5,41.0,41.4,41.8,42.2,42.5,42.8,43.0,43.2,43.4,43.6,43.8],
+  p97:[22.2,23.8,25.3,26.8,28.3,29.7,31.1,32.4,33.7,34.8,35.9,36.9,37.8,38.7,39.5,40.2,40.8,41.4,41.9,42.3,42.7,43.1,43.4,43.7,43.9,44.1,44.3,44.5,44.7]
+};
+// WHO 2006 [month,p3,p10,p50,p90,p97]
+const WW=[[0,2.5,2.9,3.3,3.9,4.2],[1,3.4,3.9,4.5,5.1,5.5],[2,4.3,4.9,5.6,6.3,6.8],[3,5.0,5.7,6.4,7.2,7.7],[4,5.6,6.2,7.0,7.9,8.5],[5,6.0,6.7,7.5,8.5,9.1],[6,6.4,7.1,7.9,8.9,9.6],[7,6.7,7.4,8.3,9.3,10.0],[8,6.9,7.7,8.6,9.7,10.4],[9,7.1,7.9,8.9,10.0,10.8],[10,7.4,8.2,9.2,10.4,11.1],[11,7.6,8.4,9.4,10.6,11.4],[12,7.7,8.6,9.6,10.8,11.6],[14,8.0,8.9,10.1,11.3,12.2],[16,8.4,9.4,10.5,11.8,12.7],[18,8.7,9.7,10.9,12.3,13.2],[20,9.0,10.1,11.3,12.7,13.7],[22,9.3,10.4,11.7,13.2,14.2],[24,9.7,10.8,12.2,13.7,14.8]];
+const WH=[[0,46.3,48.0,49.9,51.8,53.4],[1,51.1,52.8,54.7,56.7,58.4],[2,54.7,56.4,58.4,60.4,62.1],[3,57.6,59.4,61.4,63.5,65.3],[4,60.0,61.8,63.9,66.0,67.8],[5,61.9,63.8,65.9,68.0,69.9],[6,63.6,65.5,67.6,69.8,71.6],[7,65.1,67.0,69.2,71.3,73.2],[8,66.5,68.4,70.6,72.8,74.7],[9,67.7,69.7,71.9,74.2,76.0],[10,69.0,71.0,73.3,75.5,77.4],[11,70.2,72.2,74.5,76.8,78.7],[12,71.3,73.4,75.7,78.0,80.0],[14,73.4,75.5,77.9,80.3,82.3],[16,75.5,77.6,80.0,82.5,84.5],[18,77.3,79.4,82.0,84.5,86.5],[20,79.2,81.3,83.9,86.5,88.6],[22,81.0,83.2,85.9,88.5,90.7],[24,82.5,85.0,87.8,90.5,92.7]];
+const WHC=[[0,32.1,33.0,34.5,36.0,37.0],[1,34.9,36.0,37.3,38.8,39.7],[2,36.8,37.8,39.1,40.5,41.5],[3,38.3,39.2,40.5,41.9,43.0],[4,39.3,40.4,41.7,43.1,44.0],[5,40.2,41.2,42.6,43.9,44.9],[6,41.0,42.0,43.3,44.6,45.6],[7,41.7,42.7,43.9,45.3,46.2],[8,42.3,43.3,44.5,45.9,46.9],[9,42.8,43.8,45.0,46.4,47.3],[10,43.2,44.2,45.4,46.8,47.8],[11,43.6,44.6,45.8,47.2,48.2],[12,44.0,45.0,46.2,47.5,48.5],[14,44.6,45.6,46.9,48.2,49.1],[16,45.2,46.2,47.5,48.8,49.7],[18,45.8,46.7,48.0,49.3,50.3],[20,46.2,47.2,48.5,49.7,50.7],[22,46.6,47.6,48.9,50.2,51.2],[24,47.0,48.0,49.3,50.6,51.5]];
+
+let activeChart='wt';
+function switchChart(t,tab){
+  activeChart=t;
+  document.querySelectorAll('.ctab').forEach(c=>c.classList.remove('on'));
+  tab.classList.add('on');
+  drawCharts();
+}
+
+function lerp(data,x){
+  if(x<=data[0][0]) return null;
+  if(x>=data[data.length-1][0]) return [data[data.length-1][1],data[data.length-1][2],data[data.length-1][3],data[data.length-1][4],data[data.length-1][5]];
+  for(let i=0;i<data.length-1;i++){
+    if(x>=data[i][0]&&x<=data[i+1][0]){
+      const t=(x-data[i][0])/(data[i+1][0]-data[i][0]);
+      return [1,2,3,4,5].map(pi=>data[i][pi]+t*(data[i+1][pi]-data[i][pi]));
+    }
+  }
+  return null;
+}
+
+function drawCharts(){
+  const canvas=document.getElementById('gc'); if(!canvas) return;
+  const ctx=canvas.getContext('2d');
+  const dpr=window.devicePixelRatio||1;
+  const cw=canvas.offsetWidth||900,ch=420;
+  canvas.width=cw*dpr; canvas.height=ch*dpr;
+  ctx.scale(dpr,dpr);
+  ctx.clearRect(0,0,cw,ch);
+  ctx.fillStyle='#fff';ctx.fillRect(0,0,cw,ch);
+  const pad={l:62,r:36,t:24,b:52};
+  const pw=cw-pad.l-pad.r,ph=ch-pad.t-pad.b;
+
+  let fen,who,yLbl,pv;
+  const pInfo=getPMAInfo();
+  const meas={wt:parseFloat(document.getElementById('gWT').value)||null,ht:parseFloat(document.getElementById('gHT').value)||null,hc:parseFloat(document.getElementById('gHC').value)||null};
+  if(activeChart==='wt'){fen=FW;who=WW;yLbl='Weight (kg)';pv=meas.wt;}
+  else if(activeChart==='ht'){fen=FH;who=WH;yLbl='Length/Height (cm)';pv=meas.ht;}
+  else{fen=FHC;who=WHC;yLbl='HC (cm)';pv=meas.hc;}
+
+  // Build unified axis: preterm = PMA 22→50wks (28 units), postterm = 0→24m (24 units) = 52 total
+  const X_TOTAL=52, X_TRANS=28;
+  const xC=x=>pad.l+x/X_TOTAL*pw;
+  const fenX=w=>xC(w-22); // PMA 22=0, 50=28
+  const whoX=m=>xC(X_TRANS+m); // 0m=28, 24m=52
+
+  // Y range
+  const allY=[];
+  ['p3','p10','p50','p90','p97'].forEach(k=>allY.push(...fen[k]));
+  who.forEach(r=>[1,2,3,4,5].forEach(i=>allY.push(r[i])));
+  if(pv) allY.push(pv);
+  const yMin=Math.floor(Math.min(...allY)*0.9),yMax=Math.ceil(Math.max(...allY)*1.05);
+  const yC=y=>pad.t+ph-(y-yMin)/(yMax-yMin)*ph;
+
+  // Grid
+  ctx.strokeStyle='#e4edf3';ctx.lineWidth=1;
+  for(let i=0;i<=6;i++){
+    const y=yMin+i*(yMax-yMin)/6;
+    const cy=yC(y);
+    ctx.beginPath();ctx.moveTo(pad.l,cy);ctx.lineTo(pad.l+pw,cy);ctx.stroke();
+    ctx.fillStyle='#7a8fa0';ctx.font=`10px 'Source Sans 3',sans-serif`;ctx.textAlign='right';
+    ctx.fillText(activeChart==='wt'?y.toFixed(1):y.toFixed(0),pad.l-5,cy+3.5);
+  }
+  // Vertical grid — preterm weeks
+  for(let w=24;w<=50;w+=4){
+    const cx=fenX(w);
+    ctx.beginPath();ctx.strokeStyle='#e4edf3';ctx.lineWidth=1;
+    ctx.moveTo(cx,pad.t);ctx.lineTo(cx,pad.t+ph);ctx.stroke();
+    ctx.fillStyle='#9aabb8';ctx.textAlign='center';ctx.font=`9.5px 'Source Sans 3',sans-serif`;
+    ctx.fillText(w+'w',cx,ch-pad.b+14);
+  }
+  // Vertical grid — post-term months
+  for(let m=0;m<=24;m+=3){
+    const cx=whoX(m);
+    ctx.beginPath();ctx.strokeStyle='#e4edf3';ctx.lineWidth=1;
+    ctx.moveTo(cx,pad.t);ctx.lineTo(cx,pad.t+ph);ctx.stroke();
+    ctx.fillStyle='#4a6070';ctx.textAlign='center';ctx.font=`10px 'Source Sans 3',sans-serif`;
+    ctx.fillText(m+'m',cx,ch-pad.b+28);
+  }
+  // Section labels
+  ctx.fillStyle='#7a8fa0';ctx.font=`bold 10px 'Source Sans 3',sans-serif`;
+  ctx.textAlign='center';
+  ctx.fillText('← PMA weeks (Fenton 2013)',xC(14),ch-pad.b+42);
+  ctx.fillText('Corrected Age months (WHO 2006) →',xC(X_TRANS+12),ch-pad.b+42);
+
+  // Y-axis label
+  ctx.save();ctx.translate(14,pad.t+ph/2);ctx.rotate(-Math.PI/2);
+  ctx.fillStyle='#2a4060';ctx.font=`bold 11px 'Source Sans 3',sans-serif`;ctx.textAlign='center';
+  ctx.fillText(yLbl,0,0);ctx.restore();
+
+  // ── Fenton bands ──
+  function fenBand(pLo,pHi,color){
+    ctx.beginPath();
+    fen.w.forEach((w,i)=>{const x=fenX(w),y=yC(fen[pHi][i]);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+    [...fen.w].reverse().forEach((w,i,a)=>{const ri=fen.w.length-1-i;ctx.lineTo(fenX(w),yC(fen[pLo][ri]));});
+    ctx.closePath();ctx.fillStyle=color;ctx.fill();
+  }
+  fenBand('p3','p97','rgba(200,220,236,0.38)');
+  fenBand('p10','p90','rgba(132,174,212,0.30)');
+
+  function fenLine(pk,color,dash=[]){
+    ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=1.5;ctx.setLineDash(dash);
+    fen.w.forEach((w,i)=>{const x=fenX(w),y=yC(fen[pk][i]);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+    ctx.stroke();ctx.setLineDash([]);
+  }
+  fenLine('p3','#84aed4',[5,3]);fenLine('p10','#4a8cc8',[5,3]);
+  fenLine('p50','#1a5fa8');fenLine('p90','#4a8cc8',[5,3]);fenLine('p97','#84aed4',[5,3]);
+
+  // Centile labels on Fenton right edge
+  const fEnd=fen.w[fen.w.length-1];
+  ctx.font=`bold 9.5px 'Source Sans 3',sans-serif`;ctx.textAlign='left';
+  [['p97','#84aed4'],['p50','#1a5fa8'],['p3','#84aed4']].forEach(([pk,c])=>{
+    ctx.fillStyle=c;const y=yC(fen[pk][fen[pk].length-1]);
+    ctx.fillText(pk.replace('p',''),fenX(fEnd)+3,y+3);
+  });
+
+  // ── WHO bands ──
+  function whoBand(pi1,pi2,color){
+    ctx.beginPath();
+    who.forEach((r,i)=>{const x=whoX(r[0]),y=yC(r[pi2]);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+    [...who].reverse().forEach(r=>{ctx.lineTo(whoX(r[0]),yC(r[pi1]));});
+    ctx.closePath();ctx.fillStyle=color;ctx.fill();
+  }
+  whoBand(1,5,'rgba(200,220,236,0.38)');
+  whoBand(2,4,'rgba(132,174,212,0.30)');
+
+  function whoLine(pi,color,dash=[]){
+    ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=1.5;ctx.setLineDash(dash);
+    who.forEach((r,i)=>{const x=whoX(r[0]),y=yC(r[pi]);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+    ctx.stroke();ctx.setLineDash([]);
+  }
+  whoLine(1,'#84aed4',[5,3]);whoLine(2,'#4a8cc8',[5,3]);
+  whoLine(3,'#1a5fa8');whoLine(4,'#4a8cc8',[5,3]);whoLine(5,'#84aed4',[5,3]);
+
+  const wEnd=who[who.length-1];
+  [3,'#1a5fa8',[1,5,'#84aed4']].flat();
+  [[5,'#84aed4'],[3,'#1a5fa8'],[1,'#84aed4']].forEach(([pi,c])=>{
+    ctx.fillStyle=c;const y=yC(wEnd[pi]);
+    const lbl=pi===1?'3':pi===3?'50':'97';
+    ctx.fillText(lbl,whoX(wEnd[0])+3,y+3);
+  });
+
+  // ── Transition line ──
+  const tx=xC(X_TRANS);
+  ctx.beginPath();ctx.strokeStyle='#d4900a';ctx.lineWidth=2.5;ctx.setLineDash([7,5]);
+  ctx.moveTo(tx,pad.t);ctx.lineTo(tx,pad.t+ph);ctx.stroke();ctx.setLineDash([]);
+  ctx.fillStyle='#d4900a';ctx.font=`bold 10px 'Source Sans 3',sans-serif`;ctx.textAlign='center';
+  ctx.fillText('Term (40w)',tx,pad.t+12);
+
+  // ── Border ──
+  ctx.strokeStyle='#c0cdd8';ctx.lineWidth=1.5;
+  ctx.strokeRect(pad.l,pad.t,pw,ph);
+
+  // ── Patient dot ──
+  if(pv&&pInfo){
+    let px;
+    const {pmaWeeks,corrMonths}=pInfo;
+    if(pmaWeeks<50){
+      px=fenX(pmaWeeks);
+    } else {
+      const mCA=(pmaWeeks-40)*7/30.4375;
+      if(corrMonths>=24){
+        // Use chronological
+        px=whoX(pInfo.chronDays/30.4375);
+      } else {
+        px=whoX(Math.max(0,corrMonths));
+      }
+    }
+    const py=yC(pv);
+    if(py>pad.t&&py<pad.t+ph){
+      const g=ctx.createRadialGradient(px,py,0,px,py,16);
+      g.addColorStop(0,'rgba(224,61,47,0.35)');g.addColorStop(1,'rgba(224,61,47,0)');
+      ctx.beginPath();ctx.arc(px,py,16,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
+      ctx.beginPath();ctx.arc(px,py,6,0,Math.PI*2);ctx.fillStyle='#e03d2f';ctx.fill();
+      ctx.strokeStyle='#fff';ctx.lineWidth=2.5;ctx.stroke();
+      ctx.fillStyle='#b5281c';ctx.font=`bold 11px 'Source Sans 3',sans-serif`;ctx.textAlign='left';
+      const lbl=activeChart==='wt'?pv.toFixed(2)+' kg':pv.toFixed(1)+' cm';
+      ctx.fillText(lbl,px+11,py-6);
+    }
+  }
+}
+window.addEventListener('resize',()=>setTimeout(drawCharts,100));
+
+// ═══ HINE TOOL ═══
+const HINE=[
+  {d:'Cranial Nerves',c:'#3b82d4',items:[
+    {n:'Eye appearance',dc:'Conjugate gaze; nystagmus or squint',o:['Abnormal (nystagmus/squint)','Questionable','Normal'],s:[0,1,2]},
+    {n:'Auditory response',dc:'Orientation response to voice or rattle',o:['No response','Delayed / abnormal','Asymmetric','Normal'],s:[0,1,2,3]},
+    {n:'Visual response',dc:'Tracks object ≥90° smoothly',o:['No tracking','Tracks <90°','Tracks ≥90° slowly','Tracks smoothly ≥90°'],s:[0,1,2,3]},
+    {n:'Facial appearance & movements',dc:'Symmetry of expression and spontaneous facial movement',o:['Absent/very asymmetric','Some, asymmetric','Mild asymmetry','Normal symmetric'],s:[0,1,2,3]},
+    {n:'Sucking',dc:'Sucking strength and rhythm on finger or teat',o:['Absent','Weak / biting','Moderate','Normal strong'],s:[0,1,2,3]},
+  ]},
+  {d:'Posture',c:'#9b59b6',items:[
+    {n:'Head position (supine)',dc:'Should reach midline by 3m CA',o:['Persistent rotation/tilt','Often deviated','Occasionally deviated','Midline maintained'],s:[0,1,2,3]},
+    {n:'Trunk (supine)',dc:'Trunk curvature and symmetry',o:['Persistent kyphosis/lordosis','Often curved','Occasional curvature','Straight symmetric'],s:[0,1,2,3]},
+    {n:'Arms (supine)',dc:'Adduction, pronation, internal rotation',o:['Persistent adducted/pronated','Usually adducted','Occasionally','Normal relaxed'],s:[0,1,2,3]},
+    {n:'Hands (supine)',dc:'Thumb position and hand opening',o:['Always fisted','Often fisted','Occasionally fisted','Open / intermittent fisting normal'],s:[0,1,2,3]},
+    {n:'Legs (supine)',dc:'Hip flexion — frog-leg posture vs extension',o:['Rigid/extended','Some stiffness','Mild restriction','Normal >90° hip angle'],s:[0,1,2,3]},
+    {n:'Feet (supine)',dc:'Foot position — varus/valgus, dorsiflexion',o:['Persistent abnormal posture','Often abnormal','Transient abnormal','Normal'],s:[0,1,2,3]},
+  ]},
+  {d:'Movements',c:'#1abc9c',items:[
+    {n:'Quantity of movements',dc:'Frequency of spontaneous movements',o:['No movements','Scarce (very few)','Some but reduced','Normal frequency'],s:[0,1,2,3]},
+    {n:'Quality/fluency',dc:'Repertoire, speed, amplitude variability',o:['Absent or monotonous/stereotyped','Monotonous with little variation','Variable but limited','Fluent, complex, variable'],s:[0,1,2,3]},
+    {n:'Arms — symmetry',dc:'Left-right symmetry of arm movements',o:['Always asymmetric','Mostly asymmetric','Occasionally asymmetric','Symmetric'],s:[0,1,2,3]},
+    {n:'Legs — symmetry',dc:'Left-right symmetry of leg movements',o:['Always asymmetric','Mostly asymmetric','Occasionally asymmetric','Symmetric'],s:[0,1,2,3]},
+  ]},
+  {d:'Tone',c:'#e67e22',items:[
+    {n:'Scarf sign',dc:'Pull arm across chest — elbow position relative to midline',o:['Elbow past midline (hypotonic)','Elbow reaches midline','Just to midline','Stops before midline (normal)'],s:[0,1,2,3]},
+    {n:'Passive tone — arms',dc:'Resistance to passive flexion/extension of elbow',o:['No resistance (flaccid)','Reduced resistance','Normal','Increased resistance'],s:[0,1,2,3]},
+    {n:'Passive tone — legs',dc:'Resistance at knee and hip to passive movement',o:['Flaccid','Reduced','Normal','Increased'],s:[0,1,2,3]},
+    {n:'Pull-to-sit (active neck flexors)',dc:'Head control and flexor activation during pull-to-sit',o:['No flexor response','Slight effort only','Partial — head lags','Maintains head in line'],s:[0,1,2,3]},
+    {n:'Ventral suspension',dc:'Trunk and limb tone in prone ventral suspension',o:['Completely limp, arms/legs hang','Very poor, minimal effort','Partial maintenance','Good maintenance trunk & limbs'],s:[0,1,2,3]},
+  ]},
+  {d:'Reflexes & Reactions',c:'#e74c3c',items:[
+    {n:'Tendon reflexes',dc:'Knee jerk, ankle jerk, biceps (each scored individually — enter composite)',o:['Absent','Diminished','Exaggerated with clonus','Normal'],s:[0,1,2,3]},
+    {n:'Arm protective extension',dc:'Arm extends toward surface when tilted forward (emerges 4–6m CA)',o:['Absent','Incomplete (one side)','Partial bilateral','Complete bilateral'],s:[0,1,2,3]},
+    {n:'Lateral tilting reaction',dc:'Trunk righting / lateral propping (5–6m CA)',o:['Absent','Emerging (incomplete)','Partial','Complete'],s:[0,1,2,3]},
+    {n:'ATNR (asymmetric tonic neck reflex)',dc:'Should disappear by 4m CA',o:['Obligatory (pathological)','Present but not obligatory','Weak only','Absent (normal after 4m)'],s:[0,1,2,3]},
+    {n:'Moro reflex',dc:'Should disappear by 5–6m CA',o:['Absent when expected','Partial / incomplete','Exaggerated / persists too long','Normal'],s:[0,1,2,3]},
+    {n:'Automatic stepping',dc:'Present early, disappears 2–3m CA',o:['Absent when expected','Present when should be absent','Weak stepping','Normal'],s:[0,1,2,3]},
+  ]},
+];
+let hSc={};
+function buildHINE(){
+  const c=document.getElementById('hdoms');
+  if(c.childElementCount>0) return;
+  let h='';
+  HINE.forEach((dom,di)=>{
+    h+=`<div class="hdom"><div class="hdom-h" style="background:${dom.c}"><span>${dom.d}</span><span class="hdom-sc" id="hds${di}">0/${dom.items.length*3}</span></div><div class="hdom-b">`;
+    dom.items.forEach((item,ii)=>{
+      h+=`<div class="hitem"><div class="hitem-name">${item.n}</div><div class="hitem-desc">${item.dc}</div><div class="hopts">`;
+      item.o.forEach((opt,oi)=>{
+        h+=`<div class="hopt" data-k="${di}_${ii}" data-s="${item.s[oi]}" onclick="pickH(this)">${opt} <small style="opacity:.6">[${item.s[oi]}]</small></div>`;
+      });
+      h+=`</div></div>`;
+    });
+    h+=`</div></div>`;
+  });
+  c.innerHTML=h;
+}
+function pickH(el){
+  el.closest('.hopts').querySelectorAll('.hopt').forEach(o=>o.className='hopt');
+  const sc=parseInt(el.dataset.s);
+  el.classList.add('s'+sc);
+  hSc[el.dataset.k]=sc;
+  recalcH();
+}
+function recalcH(){
+  let tot=0;
+  const ds=HINE.map(()=>0);
+  Object.entries(hSc).forEach(([k,v])=>{ds[parseInt(k.split('_')[0])]+=v;tot+=v;});
+  document.getElementById('hTotal').textContent=tot;
+  HINE.forEach((_,di)=>{const el=document.getElementById('hds'+di);if(el)el.textContent=`${ds[di]}/${HINE[di].items.length*3}`;});
+  document.getElementById('hSub').textContent=HINE.map((d,di)=>`${d.d}: ${ds[di]}`).join(' · ');
+  const box=document.getElementById('hIntBox');
+  let cls,txt;
+  if(tot>57){cls='hi-n';txt='✅ Normal (>57)';}
+  else if(tot>=40){cls='hi-s';txt='⚠️ Suboptimal (40–57)';}
+  else{cls='hi-h';txt='🔴 High-risk (<40)';}
+  box.innerHTML=`<span class="hii ${cls}">${txt}</span>`;
+}
+
+// ═══ DATA ═══
+let records=JSON.parse(localStorage.getItem('pfc2')||'[]');
+
+function gatherData(){
+  const imps=[];
+  document.querySelectorAll('.imp-card.on label').forEach(l=>imps.push(l.textContent.trim()));
+  const rfs=[];
+  for(let i=1;i<=10;i++){if(document.getElementById('rf'+i)?.checked)rfs.push(document.getElementById('rf'+i).nextElementSibling.textContent.trim());}
+  const ht=parseInt(document.getElementById('hTotal').textContent)||0;
+  return{
+    id:Date.now(),ts:new Date().toISOString(),
+    name:document.getElementById('pName').value,mic:document.getElementById('pMIC').value,
+    visitDate:document.getElementById('pVisit').value,dob:document.getElementById('pDOB').value,
+    ga:document.getElementById('pGA').value,bw:document.getElementById('pBW').value,
+    sex:document.getElementById('pSex').value,visitNum:document.getElementById('pVisitNum').value,
+    correctedAge:document.getElementById('correctedAge').value,
+    pma:document.getElementById('pmaDisplay').value,
+    weightKg:document.getElementById('gWT').value,
+    lengthCm:document.getElementById('gHT').value,
+    hcCm:document.getElementById('gHC').value,
+    hineTotal:ht,
+    hineInterp:ht>57?'Normal':ht>=40?'Suboptimal':'High-risk',
+    gmaInterp:document.querySelector('input[name=gmaI]:checked')?.value||'',
+    impressions:imps.join('; '),
+    redFlags:rfs.join('; '),
+    clinician:document.getElementById('clinician').value,
+    nextDate:document.getElementById('nextDate').value,
+  };
+}
+function saveRecord(){
+  const d=gatherData();
+  if(!d.name&&!d.mic){showToast('⚠️ Enter patient name or MRN');return;}
+  records.push(d);localStorage.setItem('pfc2',JSON.stringify(records));
+  renderTable();updateStats();showToast('✅ Saved — '+(d.name||d.mic));
+}
+function renderTable(){
+  const w=document.getElementById('dtWrap');
+  if(!records.length){w.innerHTML='<div class="empty"><div class="ei">📋</div><h3>No records yet</h3></div>';return;}
+  let h=`<table class="dtable"><thead><tr><th>Date</th><th>Name</th><th>MRN</th><th>GA</th><th>CA</th><th>PMA</th><th>Wt kg</th><th>HINE</th><th>GMA</th><th>Impression</th><th>RF</th><th>Del</th></tr></thead><tbody>`;
+  records.forEach((r,i)=>{
+    const imp=r.impressions?.includes('Normal')&&!r.impressions?.includes('risk')?'<span class="tag tg">Normal</span>':r.impressions?.includes('High-risk')?'<span class="tag tr">Risk</span>':'<span class="tag ty">Monitor</span>';
+    const rf=r.redFlags?'<span class="tag tr">Yes</span>':'<span class="tag tg">None</span>';
+    h+=`<tr><td>${r.visitDate||'—'}</td><td>${r.name||'—'}</td><td>${r.mic||'—'}</td><td>${r.ga||'—'}w</td><td>${r.correctedAge||'—'}</td><td>${r.pma||'—'}</td><td>${r.weightKg||'—'}</td><td>${r.hineTotal} (${r.hineInterp})</td><td>${r.gmaInterp||'—'}</td><td>${imp}</td><td>${rf}</td><td><button class="btn btn-red btn-sm" onclick="delR(${i})">🗑</button></td></tr>`;
+  });
+  w.innerHTML=h+'</tbody></table>';
+}
+function delR(i){records.splice(i,1);localStorage.setItem('pfc2',JSON.stringify(records));renderTable();updateStats();}
+function clearAll(){if(!confirm('Delete ALL records? This cannot be undone.'))return;records=[];localStorage.removeItem('pfc2');renderTable();updateStats();showToast('Cleared');}
+function updateStats(){
+  document.getElementById('stTotal').textContent=records.length;
+  document.getElementById('stNorm').textContent=records.filter(r=>r.hineInterp==='Normal').length;
+  document.getElementById('stRisk').textContent=records.filter(r=>r.hineInterp==='High-risk'||r.impressions?.includes('High-risk')).length;
+  document.getElementById('stRF').textContent=records.filter(r=>r.redFlags&&r.redFlags.length>0).length;
+  const gas=records.map(r=>parseFloat(r.ga)).filter(g=>!isNaN(g));
+  document.getElementById('stGest').textContent=gas.length?(gas.reduce((a,b)=>a+b,0)/gas.length).toFixed(1)+'w':'—';
+  const hs=records.map(r=>r.hineTotal).filter(h=>h>0);
+  document.getElementById('stHINE').textContent=hs.length?(hs.reduce((a,b)=>a+b,0)/hs.length).toFixed(1):'—';
+}
+function exportCSV(){
+  if(!records.length){showToast('No records to export');return;}
+  const keys=Object.keys(records[0]);
+  const lines=[keys.join(','),...records.map(r=>keys.map(k=>'"'+(String(r[k]||'').replace(/"/g,'""'))+'"').join(','))];
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([lines.join('\n')],{type:'text/csv'}));
+  a.download='preterm_clinic_'+new Date().toISOString().slice(0,10)+'.csv';
+  a.click();showToast('📊 CSV exported');
+}
+function clearForm(){
+  if(!confirm('Start new visit? Unsaved data will be cleared.'))return;
+  document.querySelectorAll('input[type=text],input[type=number],input[type=date],input[type=tel],textarea').forEach(e=>e.value='');
+  document.querySelectorAll('input[type=checkbox],input[type=radio]').forEach(e=>e.checked=false);
+  document.querySelectorAll('.imp-card').forEach(e=>e.classList.remove('on'));
+  document.querySelectorAll('.hopt').forEach(e=>e.className='hopt');
+  hSc={};
+  document.getElementById('hTotal').textContent='0';
+  document.getElementById('hSub').textContent='Select items below to calculate score';
+  document.getElementById('hIntBox').innerHTML='';
+  if(document.getElementById('hdoms')) HINE.forEach((_,di)=>{const el=document.getElementById('hds'+di);if(el)el.textContent=`0/${HINE[di].items.length*3}`;});
+  document.getElementById('caBox').style.display='none';
+  document.getElementById('pVisit').value=new Date().toISOString().slice(0,10);
+  drawCharts();
+  showToast('🍼 Ready for new visit');
+}
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  document.getElementById('pVisit').value=new Date().toISOString().slice(0,10);
+  renderTable();updateStats();
+  setTimeout(drawCharts,100);
+});
+</script>
+</body>
+</html>
